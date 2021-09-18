@@ -1,6 +1,14 @@
+import Drawer from "../Drawer";
+import Content from "../Content";
+
 function App() {
   return (
-    <div>AA</div>
+    <>
+      <Drawer>
+        <Content />
+      </Drawer>
+      <div>AA</div>
+    </>
   );
 }
 

@@ -13,8 +13,9 @@ import Typography from '@mui/material/Typography';
 
 const drawerWidth = '50%';
 
-function Drawer({ children }: {children: any}) {
+function Drawer({ children, posts }: {children: any, posts: []}) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  console.log('UUUUU', posts)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -25,13 +26,18 @@ function Drawer({ children }: {children: any}) {
       <Toolbar />
       <Divider />
       <List>
-        {['A', 'B', 'C', 'D'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {posts?.map((post: any) => {
+          const { id, title, author, created_utc } = post?.data
+          return (
+            <div key={id}>
+              <ListItem button>
+                <ListItemText primary={title} />
+              </ListItem>
+              <Divider />
+            </div>
+        )
+        })}
       </List>
-      <Divider />
     </div>
   );
 

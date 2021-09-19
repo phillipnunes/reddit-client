@@ -1,7 +1,8 @@
-import {GET_POSTS} from "../constants";
+import {SET_SELECTED, GET_POSTS} from "../constants";
 
 const initialState = {
-  data: []
+  data: [],
+  selected: {}
 }
 
 export default (state = initialState, action: any) => {
@@ -10,6 +11,11 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         data: action.payload
+      }
+    case SET_SELECTED:
+      return {
+        ...state,
+        selected: action.payload
       }
     default:
       return state

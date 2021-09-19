@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 
-export default function Header({ onClick }) {
+export default function Header({ onClick }: {onClick: () => void}) {
   return (
     <Toolbar>
       <IconButton
@@ -16,7 +16,7 @@ export default function Header({ onClick }) {
         <MenuIcon />
       </IconButton>
       <Typography variant="h6" noWrap component="div">
-        Responsive drawer
+        Details
       </Typography>
     </Toolbar>
   )

@@ -8,16 +8,16 @@ import Content from "../Content";
 function App() {
   const dispatch = useDispatch()
   const posts = useSelector((state: RootState) => state.posts.data)
-
-  console.log('POSTS', posts)
+  const selected = useSelector((state: RootState) => state.posts.selected)
 
   useEffect(() => {
     dispatch(getPosts())
   }, [])
+
   return (
     <>
       <Drawer posts={posts}>
-        <Content />
+        {selected?.title && <Content selected={selected} />}
       </Drawer>
     </>
   );

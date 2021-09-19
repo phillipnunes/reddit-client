@@ -1,7 +1,8 @@
-import {GET_POSTS} from "../constants";
+import {SET_SELECTED} from "../constants";
 
-export const getPosts = () => (dispatch: any) => {
+export const setSelected = (selected: object) => (dispatch: any) => {
   dispatch({
-    type: GET_POSTS,
+    type: SET_SELECTED,
+    payload: selected
   })
 }

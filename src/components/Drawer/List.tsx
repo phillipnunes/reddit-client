@@ -15,17 +15,23 @@ const formatDate = (timestamp: number) => {
   return dateInDays
 }
 
-export default function ListComponent({posts}: {posts: []}) {
-  function handleOnClick() {
+const validateImage = (url: string) => {
+  return (url.match(/\.(jpeg|jpg|gif|png)$/) !== null) ? url : null;
+}
 
-  }
+export default function ListComponent({posts, onClick}: {posts: [], onClick: (arg: object) => void}) {
   return (
     <List>
       {posts?.map((post: any) => {
-        const { id, title, author, created_utc, thumbnail, url, num_comments } = post?.data
+        const { id, title, author, created_utc, thumbnail, num_comments, url } = post?.data
         return (
           <>
-            <ListItem onClick={() => handleOnClick(title, url, )} button key={id} style={{
+            <ListItem onClick={() => onClick({
+              author,
+              url: validateImage(url),
+              title
+            })}
+              button key={id} style={{
               flexDirection: 'column',
             }}>
               <Grid container xs={12}>

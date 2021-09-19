@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {useState} from 'react';
+import {useDispatch} from "react-redux";
+import {setSelected} from "../../actions/posts";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -10,17 +12,22 @@ import Header from './Header';
 const drawerWidth = '50%';
 
 function Drawer({ children, posts }: {children: any, posts: []}) {
+  const dispatch = useDispatch()
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const onClickPost = (selected: object) => {
+    dispatch(setSelected(selected))
+  }
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
-      <List posts={posts} />
+      <List posts={posts} onClick={onClickPost} />
     </div>
   );
 

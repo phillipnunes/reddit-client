@@ -1,7 +1,5 @@
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
+import {Toolbar, IconButton, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Typography from "@mui/material/Typography";
 
 export default function Header({ onClick }: {onClick: () => void}) {
   return (

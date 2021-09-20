@@ -7,7 +7,7 @@ import {setSelected, removePost, removeAllPosts, setPostAsRead} from "../../acti
 
 const drawerWidth = '50%';
 
-function Drawer({ children, posts }: {children: any, posts: []}) {
+function Drawer({ children, posts }: {children: JSX.Element, posts: []}) {
   const dispatch = useDispatch()
   const [mobileOpen, setMobileOpen] = useState(false);
 

@@ -4,7 +4,6 @@ import {GET_POSTS} from "../constants";
 export const getPosts = () => async (dispatch: any) => {
   dispatch({ type: GET_POSTS })
 
-  // https://www.reddit.com/top.json?limit=50&after=t3_pqyb9n
   const apiUrl = 'https://www.reddit.com/top.json?limit=50'
 
   try {

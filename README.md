@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+## :zap: Reddit Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application to list top 50 posts from [Reddit](https://www.reddit.com/top), built with React, Hooks, TypeScript and MUI.
 
-## Available Scripts
+#### Preview: https://reddit-client-phillipnunes.vercel.app/
 
-In the project directory, you can run:
+## :cloud: Screen Shots
 
-### `yarn start`
+#### Home page:
+![Home](https://i.ibb.co/FBL7hfD/Screenshot-from-2021-09-20-15-56-28.png)
+&nbsp;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :package: Installation and Setup Instructions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clone down this repository. You will need `node` and `npm` or `yarn` installed globally on your machine.
 
-### `yarn test`
+Installation:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm install` or `yarn install`
 
-### `yarn build`
+To Run Test Suite:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm test` or `yarn test`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To Start Development Server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm dev` or `yarn dev`
 
-### `yarn eject`
+To Visit App:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`localhost:3000/`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :rocket: Deployed on Vercel
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+See the [official documentation](https://vercel.com/docs).

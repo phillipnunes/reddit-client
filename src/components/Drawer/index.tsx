@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useDispatch} from "react-redux";
-import {setSelected} from "../../actions/posts";
+import {setSelected, removePost, removeAllPosts} from "../../actions/posts";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -8,6 +8,7 @@ import DrawerMUI from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
 import List from "./List";
 import Header from './Header';
+import {Button} from "@mui/material";
 
 const drawerWidth = '50%';
 
@@ -23,11 +24,21 @@ function Drawer({ children, posts }: {children: any, posts: []}) {
     dispatch(setSelected(selected))
   }
 
+  const onRemove = (id: string) => {
+    dispatch(removePost(id))
+  }
+
+  const onRemoveAll = () => {
+    dispatch(removeAllPosts())
+  }
+
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar>
+        <Button onClick={() => onRemoveAll()} size="small" variant="contained" >Remove All</Button>
+      </Toolbar>
       <Divider />
-      <List posts={posts} onClick={onClickPost} />
+      <List posts={posts} onClick={onClickPost} onRemove={onRemove} />
     </div>
   );
 

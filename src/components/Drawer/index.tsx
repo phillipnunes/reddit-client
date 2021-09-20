@@ -1,14 +1,9 @@
 import {useState} from 'react';
 import {useDispatch} from "react-redux";
-import {setSelected, removePost, removeAllPosts} from "../../actions/posts";
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import DrawerMUI from '@mui/material/Drawer';
-import Toolbar from '@mui/material/Toolbar';
-import List from "./List";
+import {AppBar, Box, Divider, Drawer as DrawerMUI, Toolbar, Button} from '@mui/material';
 import Header from './Header';
-import {Button} from "@mui/material";
+import List from './List'
+import {setSelected, removePost, removeAllPosts, setPostAsRead} from "../../actions/posts";
 
 const drawerWidth = '50%';
 
@@ -20,8 +15,9 @@ function Drawer({ children, posts }: {children: any, posts: []}) {
     setMobileOpen(!mobileOpen);
   };
 
-  const onClickPost = (selected: object) => {
+  const onClickPost = (selected: any) => {
     dispatch(setSelected(selected))
+    dispatch(setPostAsRead(selected?.id))
   }
 
   const onRemove = (id: string) => {

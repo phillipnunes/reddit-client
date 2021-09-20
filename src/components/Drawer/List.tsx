@@ -6,9 +6,7 @@ const formatDate = (timestamp: number) => {
   const now = new Date()
 
   const diff = Math.abs(now.getTime() - date.getTime())
-  const dateInDays = Math.ceil(diff / (1000 * 3600))
-
-  return dateInDays
+  return Math.ceil(diff / (1000 * 3600))
 }
 
 const validateImage = (url: string) => {
@@ -25,6 +23,7 @@ export default function ListComponent({posts, onClick, onRemove}: {posts: [], on
             <Collapse key={id}>
               <ListItem
                 onClick={() => onClick({
+                  id,
                   author,
                   url: validateImage(url),
                   title
@@ -33,15 +32,15 @@ export default function ListComponent({posts, onClick, onRemove}: {posts: [], on
                 style={{
                   flexDirection: 'column',
                 }}>
-                <Grid container xs={12}>
+                <Grid container >
                   <Grid item md={11} >
                     <Typography mb={1}>{`Posted by ${author} ${formatDate(created_utc)} hours ago`}</Typography>
                   </Grid>
                   <Grid item md={1}>
-                    <Typography mb={1}>Unread</Typography>
+                    <Typography mb={1}>{`${post?.read ? 'Read' : 'Unread'}`}</Typography>
                   </Grid>
                 </Grid>
-                <Grid container xs={12} alignItems='center'>
+                <Grid container alignItems='center'>
                   <Grid item md={2}>
                     <Avatar src={thumbnail} alt="Post image" sx={{ width: 56, height: 56 }} />
                   </Grid>
@@ -49,7 +48,7 @@ export default function ListComponent({posts, onClick, onRemove}: {posts: [], on
                     <ListItemText primary={title} />
                   </Grid>
                 </Grid>
-                <Grid container xs={12} >
+                <Grid container >
                   <Typography mt={1}>{`${num_comments} comments`}</Typography>
                 </Grid>
               </ListItem>

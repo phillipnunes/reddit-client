@@ -1,12 +1,21 @@
-import {SET_SELECTED, GET_POSTS, REMOVE_POST, REMOVE_ALL_POSTS} from "../constants";
+import {SET_SELECTED, GET_POSTS, REMOVE_POST, REMOVE_ALL_POSTS, SET_AS_READ} from "../constants";
 
 const initialState = {
   data: [],
   selected: {}
 }
 
-function removePostById(id: string, data: any){
+function removePostById(id: string, data: any) {
   return data.filter((it: any) => it?.data?.id !== id)
+}
+
+function setPostAsRead(id: string, data: any) {
+  return data.map((it: any) => {
+    if (it?.data?.id === id) {
+      it.read = true
+    }
+    return it
+  })
 }
 
 const posts = (state = initialState, action: any) => {
@@ -30,6 +39,11 @@ const posts = (state = initialState, action: any) => {
       return {
         ...state,
         data: []
+      }
+    case SET_AS_READ:
+      return {
+        ...state,
+        data: setPostAsRead(action.payload, state?.data)
       }
     default:
       return state

@@ -1,9 +1,9 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../reducers/rootReducer";
-import {getPosts} from '../../thunk/posts'
-import Drawer from "../Drawer";
-import Content from "../Content";
+import {RootState} from "../reducers/rootReducer";
+import {getPosts} from '../thunk/posts'
+import Drawer from "./Drawer";
+import Content from "./Content";
 
 function App() {
   const dispatch = useDispatch()
@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getPosts())
-  }, [])
+  }, [dispatch])
 
   return (
     <>

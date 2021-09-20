@@ -5,7 +5,7 @@ const initialState = {
   selected: {}
 }
 
-export default (state = initialState, action: any) => {
+const posts = (state = initialState, action: any) => {
   switch (action.type) {
     case GET_POSTS:
       return {
@@ -21,3 +21,5 @@ export default (state = initialState, action: any) => {
       return state
   }
 }
+
+export default posts

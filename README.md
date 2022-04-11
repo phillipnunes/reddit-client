@@ -12,6 +12,8 @@ An application to list top 50 posts from [Reddit](https://www.reddit.com/top), b
 
 ## :package: Installation and Setup Instructions
 
+Node version: 14.0.0
+
 Clone down this repository. You will need `node` and `npm` or `yarn` installed globally on your machine.
 
 Installation:
